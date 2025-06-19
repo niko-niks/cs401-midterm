@@ -8,6 +8,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * Creates a pivot table to establish a many-to-many relationship between teachers and courses using the user table where type is course.
      */
     public function up(): void
     {

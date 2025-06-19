@@ -8,17 +8,17 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * Creates the users table to store basic user information including personal details, login credentials, and registration date.
      */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->comment('user first name.');
-            $table->string('last_name')->comment('user last name.');
-            $table->string('user_name')->comment('user user name.')->max(30);
-            $table->string('password')->comment('user password.');
+            $table->string('first_name', 255)->comment('user first name.');
+            $table->string('last_name', 255)->comment('user last name.');
+            $table->string('user_name', 30)->comment('user user name.');
+            $table->string('password', 255)->comment('user password.');
             $table->timestamp('registration_date')->comment('user date of registration.');
-            $table->string('type')->nullable()->comment('type of user role or relationship (e.g., user_role, class_student).');
             $table->timestamps();
         });
     }
